@@ -1,0 +1,296 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ "Ignore Cursor" 0
+ components {
+  FFA_ArsenalControllerUIComponent "{68D0D428442E8186}" {
+  }
+  FFA_ArsenalInterfaceManagerUIComponent "{68D0D428573504CD}" {
+   m_sInterfaceWidgetName "ArsenalInterface"
+  }
+ }
+ {
+  FrameWidgetClass "{68CD33A2A2A940B0}" : "{777A38BB49472774}UI/layouts/WidgetLibrary/BaseElements/WLib_MenuBase.layout" {
+   Name "MenuBase0"
+   Slot FrameWidgetSlot "{54D8A1A6EA84F990}" {
+    Anchor 0.22 0.15 0.78 0.85
+    PositionX 0
+    OffsetLeft -300
+    PositionY 0
+    OffsetTop -100
+    SizeX 0
+    OffsetRight -300
+    SizeY 0
+    OffsetBottom -100
+   }
+   Color 0 0 0 1
+   {
+    BlurWidgetClass "{68CD33A2A2A940B2}" : "{352322057FD78AE1}UI/layouts/WidgetLibrary/BaseElements/WLib_Blur.layout" {
+     Name "Blur1"
+     Slot FrameWidgetSlot "{5A2CA7C4E49A8180}" {
+      Anchor 0 0 1 1
+      PositionX 0
+      OffsetLeft 0
+      PositionY 1.331
+      OffsetTop 1.331
+      SizeX 0
+      OffsetRight 0
+      SizeY 0
+      OffsetBottom -1.331
+     }
+     "Z Order" -1
+     Opacity 0.99
+     Color 0.007 0.012 0.014 1
+     Intensity 1
+     "Smooth Border" 0 0 0 0
+    }
+    BlurWidgetClass "{00000000E99E7D4A}" {
+     Prefab "{00000000E99E7D4A}"
+     "Is Visible" 0
+     Opacity 0.99
+     Color 0.007 0.012 0.014 0.718
+     Intensity 1
+    }
+    ImageWidgetClass "{00000000209D883B}" {
+     Prefab "{00000000209D883B}"
+     Slot FrameWidgetSlot "{5488B97C9D820763}" {
+     }
+    }
+    VerticalLayoutWidgetClass "{000000005ABA4553}" {
+     Prefab "{000000005ABA4553}"
+     {
+      HorizontalLayoutWidgetClass "{68CD33A2A2A940B8}" {
+       Name "HorizontalLayout0"
+       Slot LayoutSlot "{64790CF605244259}" {
+       }
+       {
+        SizeLayoutWidgetClass "{68CD33A2A2A940B9}" {
+         Name "Alignment"
+         Slot LayoutSlot "{5720DE53A848E0CC}" {
+          SizeMode Fill
+         }
+         {
+          VerticalLayoutWidgetClass "{68CD33A2A2A940BA}" {
+           Name "ContentLayout"
+           Slot AlignableSlot "{56EEDE0403BED8AE}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+           }
+           "Fill Origin" Center
+           {
+            HorizontalLayoutWidgetClass "{68CD33A2A2A940BB}" {
+             Name "HorizontalLayout0"
+             Slot LayoutSlot "{599083DDE2349E32}" {
+              Padding 0 0 0 12
+             }
+             {
+              TextWidgetClass "{68CD33A2A2A94085}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+               Name "Title"
+               Slot LayoutSlot "{56EEDE046853BD3D}" {
+                VerticalAlign 1
+                SizeMode Fill
+               }
+               Text "#FFA-ArsenalUI-Title"
+              }
+              TextWidgetClass "{68CD33A2A2A94086}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+               Name "PlayerMoney"
+               Slot LayoutSlot "{56EEDE046853BD3D}" {
+               }
+               Text "$100"
+               "Min Font Size" 20
+               "Vertical Alignment" Center
+              }
+              HorizontalLayoutWidgetClass "{68CD33A2A2A94080}" {
+               Name "ResourceFundsSupplies"
+               Slot LayoutSlot "{62C70ED5CE8A3687}" {
+                HorizontalAlign 1
+                VerticalAlign 1
+                Padding 15 0 0 0
+               }
+               {
+                FrameWidgetClass "{68CD33A2A2A94082}" {
+                 Name "Frame0"
+                 Slot LayoutSlot "{62C4B84572599893}" {
+                  Padding -4 0 -2.5 0
+                 }
+                 {
+                  ImageWidgetClass "{68CD33A2A2A9408E}" {
+                   Name "Icon"
+                   Slot FrameWidgetSlot "{62C4B8457313DDAA}" {
+                    PositionX 0
+                    OffsetLeft 0
+                    OffsetTop 0
+                    SizeX 50
+                    OffsetRight -50
+                    SizeY 50
+                    OffsetBottom -50
+                   }
+                   Texture "{2EFEA2AF1F38E7F0}UI/Textures/Icons/icons_wrapperUI-64.imageset"
+                   Image "supplies"
+                   Size 64 64
+                  }
+                 }
+                }
+                TextWidgetClass "{68CD33A2A2A94088}" {
+                 Name "ResourceFundsSuppliesValue"
+                 Slot LayoutSlot "{62C4B847CBB1A0C0}" {
+                  HorizontalAlign 2
+                  VerticalAlign 1
+                  Padding 0 0 2 0
+                 }
+                 Rotation 0
+                 Text "200"
+                 "Font Size" 40
+                 "Min Font Size" 20
+                 "Vertical Alignment" Center
+                 FontProperties FontProperties "{62C40D3CF2324EAB}" {
+                  Font "{CD2634D279AB011A}UI/Fonts/Roboto/Roboto_Bold.fnt"
+                 }
+                }
+               }
+              }
+              HorizontalLayoutWidgetClass "{68CD33A2A2A9DA59}" {
+               Name "ResourceFundsFuel"
+               Slot LayoutSlot "{62C70EC853EAE614}" {
+                HorizontalAlign 1
+                VerticalAlign 1
+                Padding 15 0 0 0
+               }
+               {
+                FrameWidgetClass "{68CD33A2A2A9DA5B}" {
+                 Name "Frame0"
+                 Slot LayoutSlot "{62C4B84572599893}" {
+                  Padding -4 0 -2.5 0
+                 }
+                 {
+                  ImageWidgetClass "{68CD33A2A2A9DA45}" {
+                   Name "Icon"
+                   Slot FrameWidgetSlot "{62C4B8457313DDAA}" {
+                    PositionX 0
+                    OffsetLeft 0
+                    OffsetTop 0
+                    SizeX 50
+                    OffsetRight -50
+                    SizeY 50
+                    OffsetBottom -50
+                   }
+                   Texture "{2EFEA2AF1F38E7F0}UI/Textures/Icons/icons_wrapperUI-64.imageset"
+                   Image "veh_fuel"
+                   Size 64 64
+                  }
+                 }
+                }
+                TextWidgetClass "{68CD33A2A2A9DA44}" {
+                 Name "ResourceFundsFuelValue"
+                 Slot LayoutSlot "{62C4B847CBB1A0C0}" {
+                  HorizontalAlign 2
+                  VerticalAlign 1
+                  Padding 0 0 2 0
+                 }
+                 Rotation 0
+                 Text "200"
+                 "Font Size" 40
+                 "Min Font Size" 20
+                 "Vertical Alignment" Center
+                 FontProperties FontProperties "{62C40D3CF2324EAB}" {
+                  Font "{CD2634D279AB011A}UI/Fonts/Roboto/Roboto_Bold.fnt"
+                 }
+                }
+               }
+              }
+             }
+            }
+            ImageWidgetClass "{68CD33A2A2A9DA47}" {
+             Name "UpperStripe"
+             Slot LayoutSlot "{56EEDE07C9F827C2}" {
+              Padding 0 0 0 12
+             }
+             Color 0.761 0.392 0.08 1
+             Image ""
+             Size 128 2
+            }
+            OverlayWidgetClass "{68CD33A2A2A9DA46}" {
+             Name "ContentSegment"
+             Slot LayoutSlot "{56EF0B1E79FE7342}" {
+              Padding 0 12 0 0
+              SizeMode Fill
+             }
+             {
+              HorizontalLayoutWidgetClass "{68CEFC0F623088CF}" : "{2A221377F85B075B}UI/Layouts/Menu/ShopMenu/ArsenalInterface.layout" {
+               Name "ArsenalInterface"
+               Slot OverlayWidgetSlot "{652D56243FF3EAF6}" {
+               }
+               {
+                VerticalLayoutWidgetClass "{68CEFC084CE7A3A5}" {
+                 Prefab "{68CEFC084CE7A3A5}"
+                 {
+                  HorizontalLayoutWidgetClass "{68CEFC084CE7A3A6}" {
+                   Prefab "{68CEFC084CE7A3A6}"
+                   {
+                    ButtonWidgetClass "{68CEFC084CE7A3AE}" {
+                     Prefab "{68CEFC084CE7A3AE}"
+                     "Is Enabled" 1
+                     "Is Visible" 1
+                    }
+                   }
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+            ImageWidgetClass "{68CD33A2A2A9DDAC}" {
+             Name "LowerStripe"
+             Slot LayoutSlot "{56EEDE06187FACF9}" {
+              Padding 0 12 0 24
+             }
+             Opacity 0.1
+             Size 2 2
+            }
+            FrameWidgetClass "{68CD33A2A2A9DDAF}" {
+             Name "Footer"
+             Slot LayoutSlot "{6866A617A60E7A13}" {
+              VerticalAlign 1
+             }
+             {
+              OverlayWidgetClass "{68CD33A2A2A9DDA9}" : "{643EA0621307E7A3}UI/Layouts/Menu/ShopMenu/ShopInterfaceNavbar.layout" {
+               Name "ShopInterfaceNavbar"
+               Slot FrameWidgetSlot "{6866A617A9CAFDD8}" {
+               }
+               components {
+                JWK_ShopInterfaceNavbarUIComponent "{6866A6167A2030AF}" {
+                 Enabled 0
+                }
+                FFA_ArsenalInterfaceNavbarUIComponent "{68ECE655983CF182}" {
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      SizeLayoutWidgetClass "{54ACA291E52533FB}" {
+       Prefab "{54ACA291E52533FB}"
+       "Is Enabled" 0
+       "Is Visible" 0
+      }
+      VerticalLayoutWidgetClass "{00000000974AC4C5}" {
+       Prefab "{00000000974AC4C5}"
+       "Is Enabled" 0
+       "Is Visible" 0
+      }
+      VerticalLayoutWidgetClass "{54ACA291480977C5}" {
+       Prefab "{54ACA291480977C5}"
+       "Is Enabled" 0
+       "Is Visible" 0
+      }
+     }
+    }
+   }
+  }
+ }
+}

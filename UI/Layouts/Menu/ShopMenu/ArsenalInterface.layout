@@ -1,0 +1,266 @@
+HorizontalLayoutWidgetClass {
+ Name "ArsenalInterface"
+ Slot OverlayWidgetSlot "{652D56243FF3EAF6}" {
+ }
+ components {
+  FFA_ArsenalInterfaceUIComponent "{68CEFC085F5F1975}" {
+  }
+ }
+ {
+  SizeLayoutWidgetClass "{68CEFC084CE7A353}" {
+   Name "SizeLayout0"
+   Slot LayoutSlot "{64790CF1A4D3E02D}" {
+   }
+   AllowWidthOverride 1
+   WidthOverride 310
+   {
+    VerticalLayoutWidgetClass "{68CEFC084CE7A35D}" {
+     Name "DetailLayout"
+     Slot AlignableSlot "{64790CF1A5EBBFA7}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+      Padding 0 0 0 0
+     }
+     {
+      OverlayWidgetClass "{68CEFC084CE7A35E}" {
+       Name "DetailContent"
+       Slot LayoutSlot "{598EF9F521ECFF8D}" {
+        SizeMode Fill
+       }
+       {
+        VerticalLayoutWidgetClass "{68D1094890600C9F}" : "{5331E8E5D035C008}UI/Layouts/Menu/ShopMenu/ArsenalItemDetails.layout" {
+         Name "ShopItemDetails"
+         Slot OverlayWidgetSlot "{598EF9F5311402ED}" {
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  VerticalLayoutWidgetClass "{68CEFC084CE7A3A5}" {
+   Name "VerticalLayout0"
+   Slot LayoutSlot "{652D56243FF3EB7F}" {
+   }
+   {
+    HorizontalLayoutWidgetClass "{68CEFC084CE7A3A6}" {
+     Name "HorizontalLayout0"
+     Slot LayoutSlot "{6866C91B6ED0CBCC}" {
+     }
+     {
+      VerticalLayoutWidgetClass "{68CEFC084CE7A3A0}" : "{D1CAF877446C66DE}UI/layouts/WidgetLibrary/TabView/WLib_TabViewCoreMenus.layout" {
+       Name "InventoryTabs"
+       Slot LayoutSlot "{589F093AB3EA94D8}" {
+        VerticalAlign 2
+        SizeMode Auto
+       }
+       components {
+        SCR_TabViewComponent "{546B27D01CA8A38D}" {
+         m_aElements {
+          SCR_TabViewContent "{652D5626D31F38E1}" {
+           m_sTabButtonContent "Arsenal inventory"
+           m_sTabIdentifier "ShopInventory"
+          }
+          SCR_TabViewContent "{652D5626C7DC26EC}" {
+           m_sTabButtonContent "Your inventory"
+           m_sTabIdentifier "PlayerInventory"
+          }
+         }
+         m_bCreateAllTabsAtStart 1
+        }
+       }
+       {
+        SizeLayoutWidgetClass "{0000000041B59A6F}" {
+         Prefab "{0000000041B59A6F}"
+         {
+          HorizontalLayoutWidgetClass "{54ACA2928A1FCB02}" {
+           Prefab "{54ACA2928A1FCB02}"
+           Slot AlignableSlot "{54ACA293E438C97C}" {
+            Padding 0 0 0 0
+           }
+          }
+         }
+        }
+        OverlayWidgetClass "{000000001094E915}" {
+         Prefab "{000000001094E915}"
+         "Is Visible" 0
+        }
+       }
+      }
+      FrameWidgetClass "{68CEFC084CE7A3AC}" {
+       Name "Frame0"
+       Slot LayoutSlot "{6866C91BA0686E32}" {
+        VerticalAlign 1
+        SizeMode Fill
+       }
+      }
+      ButtonWidgetClass "{68CEFC084CE7A3AE}" : "{13F747F43599D1EA}UI/Layouts/Menu/ShopMenu/ShopSearchBox.layout" {
+       Name "SearchBox"
+       Slot LayoutSlot "{6866C91B505B0BE0}" {
+        VerticalAlign 1
+        Padding 0 0 0 0
+       }
+       "Is Enabled" 0
+       "Is Visible" 0
+       components {
+        SCR_EditBoxSearchComponent "{553AB38AB35B762C}" {
+         m_bForceSize 0
+        }
+       }
+       {
+        SizeLayoutWidgetClass "{5538C205B27B0F5D}" {
+         Prefab "{5538C205B27B0F5D}"
+         HeightOverride 36
+         AllowMinDesiredWidth 1
+         MinDesiredWidth 350
+        }
+       }
+      }
+     }
+    }
+    OverlayWidgetClass "{68CEFC084CE7A3A9}" {
+     Name "Overlay0"
+     Slot LayoutSlot "{652ED89A0FBD4E9A}" {
+      VerticalAlign 0
+      SizeMode Fill
+     }
+     {
+      ImageWidgetClass "{68CEFC084CE7A3AA}" {
+       Name "Image0"
+       Slot OverlayWidgetSlot "{652ED89A7512E8B5}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Color 0 0 0 0.6437
+       "Blend Mode" Opaque
+      }
+      SizeLayoutWidgetClass "{68CEFC084CE7AC87}" {
+       Name "SizeLayout0"
+       Slot OverlayWidgetSlot "{652ED89AE63F827E}" {
+       }
+       AllowMaxDesiredHeight 1
+       MaxDesiredHeight 660
+       {
+        UniformGridLayoutWidgetClass "{68CEFC084CE7AC9A}" {
+         Name "BrowserGrid"
+         Slot AlignableSlot "{652D562460892685}" {
+         }
+         {
+          ButtonWidgetClass "{68CEFC084CE7AC9D}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_0"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7AC91}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_1"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Column 1
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7AC94}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_2"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Column 2
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7AC96}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_3"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Column 3
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7ACAB}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_4"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Column 4
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7ACA1}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_5"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Row 1
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7ACA2}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_6"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Row 1
+            Column 1
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7ACA4}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_7"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Row 1
+            Column 2
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7ACB9}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_8"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Row 1
+            Column 3
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7ACBA}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_9"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Row 1
+            Column 4
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7ACBC}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_10"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Row 2
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7ACB3}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_11"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Row 2
+            Column 1
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7ACB5}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_12"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Row 2
+            Column 2
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7ACB7}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_13"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Row 2
+            Column 3
+           }
+          }
+          ButtonWidgetClass "{68CEFC084CE7ACC9}" : "{55112FEF9038A272}UI/Layouts/Utils/GridCellCard.layout" {
+           Name "Card_14"
+           Slot UniformGridWidgetSlot "{5720F28474F65C1B}" {
+            Row 2
+            Column 4
+           }
+          }
+         }
+        }
+       }
+      }
+      TextWidgetClass "{68CEFC084CE7ACCA}" {
+       Name "NoItemsLabel"
+       Slot OverlayWidgetSlot "{652EDD062AF9E58D}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Text "#JWK-ShopUI-ShopInventoryEmpty"
+       "Horizontal Alignment" Center
+       "Vertical Alignment" Center
+      }
+     }
+    }
+   }
+  }
+ }
+}

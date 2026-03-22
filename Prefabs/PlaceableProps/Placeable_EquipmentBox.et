@@ -1,0 +1,22 @@
+GenericEntity : "{64B2F8D8059AE0A4}Prefabs/PlaceableProps/Placeable_EquipmentBox.et" {
+ ID "5992E2EECFF48DDE"
+ components {
+  ActionsManagerComponent "{5992E2EE5A9EEC18}" {
+   additionalActions {
+    FFA_BoxTovehicleLootTransferAction "{68ECC307C6F4B972}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo SCR_ActionUIInfo "{68ECE070D1B8F164}" {
+      Name "#FFA-ArsenalUI-LoadLoot"
+     }
+     ActionTitle "Upload to veihcle"
+     Duration 1
+     "Sort Priority" 10
+     m_sSpecificTransfer "#FFA-ArsenalUI-LoadToVehicle %1"
+     m_sNoVehiclesNearby "#FFA-ArsenalUI-NoVehicleNearby"
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,473 @@
+GenericEntity : "{6E9190BC2713551D}Prefabs/Compositions/Slotted/BuildableComposition_Base.et" {
+ ID "5282DCB5DFC8538F"
+ components {
+  EPF_PersistenceComponent "{68C2B02F891D30D5}" {
+   m_pSaveData JWK_BuildItemSaveDataClass "{68C2B02F9C425FF0}" {
+    m_aComponents {
+     FFA_ArsenalSaveDataClass "{68DEA10B42C408E5}" {
+     }
+    }
+   }
+  }
+  FFA_ArsenalShopComponent "{68C2A1A2A1FF7C89}" {
+   m_iPaymentModel SPOILS
+   m_iBackendAutoLinkType ARSENAL
+   m_bIgnoreWantedLevel 1
+   m_bApplyProfitMargin 0
+   m_bApplyStockPriceModifier 0
+  }
+  JWK_BuildAreaItemComponent "{68C2B02F6949CE3C}" {
+  }
+  RigidBody "{5E96A067A67C5029}" {
+   Geometries {
+    PhysicsBoxGeometry UserAction {
+     Offset 0 0 -1.5
+     Extents 12 0.5 12
+    }
+   }
+  }
+  SCR_EditableEntityComponent "{68C2B02F2538415F}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{68C2B02F3C974128}" {
+    Name "#JWK-BuildItem-EquipmentStoreFOB"
+    m_Image "{FA74A47CC30E3737}UI/Textures/AssetImages/Construction/EquipmentFOB.edds"
+    m_aAutoLabels {
+     ENTITYTYPE_COMPOSITION SLOT_FLAT_SMALL
+    }
+   }
+  }
+  Hierarchy "{68B3760498831BD6}" {
+   Enabled 1
+  }
+ }
+ coords 0 0 0
+ {
+  $grp GenericEntity {
+   {
+    ID "68B3760498828C43"
+    components {
+     MeshObject "{68B3760498831892}" {
+      Object "{6D1CE2568DB162A8}Assets/Props/Military/AmmoBox/ArsenalBox_01/ArsenalBox_01_FIA_equip.xob"
+     }
+     RigidBody "{68B3760498831890}" {
+     }
+     ActionsManagerComponent "{68C2A1A28DA47284}" {
+      ActionContexts {
+       UserActionContext "{68C2A1A288AF3C7D}" {
+        ContextName "default"
+        Position PointInfo "{68C2B02C54C4C6CD}" {
+         Offset 0 0.7 0
+        }
+       }
+      }
+      additionalActions {
+       FFA_ArsenalAction "{68C2ECF40EED1835}" {
+        ParentContextList {
+         "default"
+        }
+        UIInfo UIInfo "{68C2ECF41E0BA5ED}" {
+         Name "#FFA-ArsenalUI-Title"
+        }
+       }
+      }
+     }
+     Hierarchy "{68B376049883189F}" {
+     }
+    }
+    coords 1.308 0.021 3.407
+    angles 0 8.568 0
+   }
+   {
+    ID "68B376049882DE6E"
+    components {
+     MeshObject "{68B37604988318F6}" {
+      Object "{0F66C34EA4446EE5}Assets/Props/Military/InteractionPoints/PersonnelService/PersonnelService_Table_FIA_01.xob"
+     }
+     RigidBody "{68B37604988318F4}" {
+     }
+     ActionsManagerComponent "{68DF28B1CF85A911}" {
+      ActionContexts {
+       UserActionContext "{68DF50061BDF2524}" {
+        ContextName "default"
+        Position PointInfo "{68DF5007E7331175}" {
+         Offset 0 0.9 0
+        }
+       }
+      }
+      additionalActions {
+       FFA_UnloadToArsenalAction "{68DF46C2FB672FEE}" {
+        ParentContextList {
+         "default"
+        }
+        UIInfo SCR_ActionUIInfo "{68ECEB3F3467802F}" {
+         Name "#FFA-ArsenalUI-UnloadLoot"
+        }
+        Duration 1
+        "Sort Priority" 2
+        m_sSpecificTransfer "#FFA-ArsenalUI-UnloadFromVehicle %1"
+        m_sNoVehiclesNearby "#FFA-ArsenalUI-NoVehicleNearby"
+       }
+      }
+     }
+     Hierarchy "{68B37604988318F3}" {
+     }
+    }
+    coords -0.941 0.033 3.702
+    angles 0 25.44 0
+   }
+   {
+    ID "68B376049882DE71"
+    components {
+     MeshObject "{68B376049883189A}" {
+      Object "{A5B43FE12B863CFB}Assets/Structures/Signs/Military/SignRectangle_01_75x45_double.xob"
+      Materials {
+       MaterialAssignClass "{68B3760498831887}" {
+        SourceMaterial "SignRectangle_01_75x45_double"
+        AssignedMaterial "{FDCFF4FF6D786909}Assets/Structures/Signs/Military/Data/Sign_AmmoStorage_FIA_01.emat"
+       }
+       MaterialAssignClass "{68B3760498831885}" {
+        SourceMaterial "SignRectangle_01_75x45_double_MLOD"
+        AssignedMaterial "{AB6CFA3749485B65}Assets/Structures/Signs/Military/Data/Sign_Flag_FIA_01_MLOD.emat"
+       }
+      }
+      LODFactors {
+       10 5 1 1 1
+      }
+      ObjectHeightmapBias 0
+      ObjectHeightmapTraceBias 0
+     }
+     RigidBody "{68B3760498831884}" {
+      ModelGeometry 1
+     }
+     Hierarchy "{68B3760498831883}" {
+     }
+    }
+    coords 0.17 -0.89 0.209
+   }
+   Furniture {
+    ID "68B376049885DBCE"
+    components {
+     Hierarchy "{68B3760498831B3D}" {
+     }
+    }
+    coords 0.107 0.098 2.927
+    {
+     $grp GenericEntity {
+      {
+       ID "68B3760498802F90"
+       components {
+        MeshObject "{68B3760498831B4C}" {
+         Object "{CFABE5292A62A945}Assets/Props/Military/AmmoBox/EquipmentBoxStack/EquipmentBoxStack_01_V5.xob"
+        }
+        Hierarchy "{68B3760498831B4A}" {
+        }
+       }
+       coords 0.769 0.002 -3.06
+      }
+      {
+       ID "68B3760498804A76"
+       components {
+        MeshObject "{68B37604988318B6}" {
+         Object "{5172A6E151032216}Assets/Props/Military/AmmoBox/EquipmentBoxStack/EquipmentBoxStack_01_V1.xob"
+        }
+        Hierarchy "{68B37604988318B4}" {
+        }
+       }
+       coords -0.988 0.002 -3.312
+      }
+      {
+       ID "68B3760498808DA5"
+       components {
+        MeshObject "{68B3760498831B5E}" {
+         Object "{C86C1F784CE41386}Assets/Props/Military/AmmoBox/EquipmentBoxStack/EquipmentBoxStack_01_V2.xob"
+        }
+        Hierarchy "{68B3760498831B5C}" {
+        }
+       }
+       coords -1.045 0.002 -2.21
+      }
+      {
+       ID "68B3760498808DA6"
+       components {
+        MeshObject "{68B3760498831B47}" {
+         Object "{CD1CAAD3EFC0BE21}Assets/Props/Crates/CrateWooden_01/CrateWooden_01.xob"
+        }
+        Hierarchy "{68B3760498831B45}" {
+        }
+       }
+       coords 0.91 0.002 -1.89
+      }
+      {
+       ID "68B376049880900F"
+       components {
+        MeshObject "{68B3760498831B40}" {
+         Object "{569C9B8C543D3020}Assets/Props/Crates/CrateWooden_02/CrateWooden_02_1x1x1.xob"
+        }
+        Hierarchy "{68B3760498831B4F}" {
+        }
+       }
+       coords 0.335 0.003 -5.213
+      }
+      {
+       ID "68B376049880BA46"
+       components {
+        MeshObject "{68B3760498831B54}" {
+         Object "{E1972FBA9F5D4BBB}Assets/Items/Equipment/Accessories/ETool_ALICE/ETool_ALICE.xob"
+        }
+        Hierarchy "{68B3760498831B53}" {
+        }
+       }
+       coords 1.49 0.025 -0.179
+      }
+      {
+       ID "68B376049881695D"
+       components {
+        MeshObject "{68B37604988318AF}" {
+         Object "{C5B3D5A8D3F18C3A}Assets/Characters/HeadGear/Hat_FlatCap_01/Hat_FlatCap_01_item.xob"
+        }
+        Hierarchy "{68B37604988318AD}" {
+        }
+       }
+       coords -0.17 0.109 -0.552
+       angles 0 -41.165 0
+      }
+      {
+       ID "68B3760498817D29"
+       components {
+        MeshObject "{68B37604988318A8}" {
+         Object "{7DBFC7CDF314C5D2}Assets/Characters/Uniforms/Pants_Trousers_01/Pants_Trousers_01_item.xob"
+        }
+        Hierarchy "{68B3760498831895}" {
+        }
+       }
+       coords 0.305 0.067 -0.55
+       angles 0 4.757 0
+      }
+      {
+       ID "68B37604988191A2"
+       components {
+        MeshObject "{68B37604988318B2}" {
+         Object "{569C9B8C543D3020}Assets/Props/Crates/CrateWooden_02/CrateWooden_02_1x1x1.xob"
+        }
+        Hierarchy "{68B37604988318B0}" {
+        }
+       }
+       coords 0.623 0.002 -4.067
+      }
+      {
+       ID "68B376049881C41C"
+       components {
+        MeshObject "{68B37604988318BD}" {
+         Object "{96CDF4C0166F696E}Assets/Items/Equipment/Canteens/Canteen_US/Canteen_US_01.xob"
+        }
+        Hierarchy "{68B37604988318BB}" {
+        }
+       }
+       coords -0.169 0.548 -0.636
+       angles 0 129.379 0
+      }
+      {
+       ID "68B376049881C41D"
+       components {
+        MeshObject "{68B37604988318A5}" {
+         Object "{1241A6F5FBC636BA}Assets/Characters/Uniforms/Shirt_Turtleneck_01/Shirt_Turtleneck_01_item.xob"
+        }
+        Hierarchy "{68B37604988318A3}" {
+        }
+       }
+       coords -0.159 0.067 -0.528
+       angles 0 17.083 0
+      }
+      {
+       ID "68B376049885158A"
+       components {
+        MeshObject "{68B3760498831B16}" {
+         Object "{2F05EB66340F3AAD}Assets/Props/Military/SupplyBox/SupplyStack/SupplyStack_Small_01/SupplyStack_Small_01.xob"
+        }
+        Hierarchy "{68B3760498831B14}" {
+        }
+       }
+       coords -0.875 0.002 -4.711
+      }
+      {
+       ID "68B376049885158C"
+       components {
+        MeshObject "{68B3760498831B38}" {
+         Object "{4D44670942E8399B}Assets/Characters/Uniforms/Pants_M70/Pants_M70_01_item.xob"
+        }
+        Hierarchy "{68B3760498831B26}" {
+        }
+       }
+       coords -0.918 0.466 -0.711
+      }
+      {
+       ID "68B376049885158D"
+       components {
+        MeshObject "{68B3760498831B2F}" {
+         Object "{2AD355705074C5EC}Assets/Characters/HeadGear/Hat_M70/Hat_M70_01.xob"
+        }
+        Hierarchy "{68B3760498831B2D}" {
+        }
+       }
+       coords -0.847 -1.263 -1.34
+      }
+      {
+       ID "68B3760498857A0F"
+       components {
+        MeshObject "{68B3760498831B1E}" {
+         Object "{694E923474190369}Assets/Characters/Uniforms/Pants_Suit_01/Pants_Suit_01_item.xob"
+        }
+        Hierarchy "{68B3760498831B1C}" {
+        }
+       }
+       coords 0.232 0.129 -0.571
+       angles 0 -90.104 0
+      }
+      {
+       ID "68B3760498860541"
+       components {
+        MeshObject "{68B3760498831B7F}" {
+         Object "{30664C42D09E1831}Assets/Items/Equipment/Flashlights/Flashlight_Soviet_01/Flashlight_Soviet_01.xob"
+        }
+        Hierarchy "{68B3760498831B7D}" {
+        }
+       }
+       coords -0.131 0.563 -0.419
+       angles 89.972 0 22.282
+      }
+      {
+       ID "68B3760498865E44"
+       components {
+        MeshObject "{68B3760498831B79}" {
+         Object "{22E1D76D80258FE3}Assets/Items/Medicine/Aspirin_01/Aspirin_01.xob"
+        }
+        Hierarchy "{68B3760498831B67}" {
+        }
+       }
+       coords -0.233 0.552 -0.468
+       angles 0 42.72 0
+      }
+      {
+       ID "68B376049886E440"
+       components {
+        MeshObject "{68B3760498831B07}" {
+         Object "{EB0A22FF818604FF}Assets/Props/Military/MilitaryCrates/CrateStack_01/Dst/CrateStack_01_dst_3.xob"
+        }
+        Hierarchy "{68B3760498831B05}" {
+        }
+       }
+       coords -1.123 0.002 -1.067
+       angles 0 -97.732 0
+      }
+      {
+       ID "68B376049886F926"
+       components {
+        MeshObject "{68B3760498831B00}" {
+         Object "{B56C3CC773283220}Assets/Props/Furniture/Rack_01/Rack_01_Short.xob"
+        }
+        Hierarchy "{68B3760498831B0E}" {
+        }
+       }
+       coords 1.406 -1.3 -0.931
+      }
+      {
+       ID "68B376049886F927"
+       components {
+        MeshObject "{68B3760498831B76}" {
+         Object "{582D5ED9889AB099}Assets/Items/Equipment/Backpacks/Backpack_IIFS_FieldPack/Backpack_IIFS_FieldPack_item.xob"
+        }
+        Hierarchy "{68B3760498831B74}" {
+        }
+       }
+       coords 0.794 0.735 -1.718
+       angles 8.054 0 0
+      }
+      {
+       ID "68B3760498870EDF"
+       components {
+        MeshObject "{68B3760498831B6C}" {
+         Object "{D5447CC93DF5ACE3}Assets/Characters/Footwear/CombatBoots_Soviet_01/CombatBoots_Soviet_01_item.xob"
+        }
+        Hierarchy "{68B3760498831B6A}" {
+        }
+       }
+       coords 0.699 0.075 -0.538
+       angles 0 -28.494 0
+      }
+      {
+       ID "68B376049887F9FC"
+       components {
+        MeshObject "{68B3760498831B62}" {
+         Object "{B982CAE1F85001D0}Assets/Items/Equipment/Backpacks/Backpack_ALICE_Medium/Backpack_ALICE_Medium_item.xob"
+        }
+        Hierarchy "{68B3760498831B60}" {
+        }
+       }
+       coords 1.117 0.082 -0.536
+       angles 0 89.628 0
+      }
+     }
+    }
+   }
+  }
+  GenericEntity : "{02B8AC7BBE58CE4B}Prefabs/Compositions/Misc/SubCompositions/Storage/Slotted/JWK_Shelter_Arsenal_FIA_01.et" {
+   ID "68B37604988223E1"
+   coords -0.003 0 0.036
+   {
+    GenericEntity {
+     ID "625095E369030C63"
+     coords -2.281 0.163 1.886
+    }
+    StaticModelEntity {
+     ID "625095E369030C67"
+     {
+      GenericEntity {
+       ID "5A532DC5A0F2DE06"
+       coords 0 0.1 0
+      }
+     }
+    }
+   }
+  }
+  StaticModelEntity : "{DF649B29EC7635F3}Prefabs/Structures/Military/Fortifications/DirtPile_01/DirtPile_01_small.et" {
+   ID "68B37604988223E5"
+   components {
+    Hierarchy "{68B37604988318F8}" {
+     Enabled 1
+    }
+   }
+   coords -2.64 0 3.432
+  }
+  GenericEntity : "{E105D2F87098E1D8}Prefabs/Systems/Compositions/PatrolPoint/PatrolPoint_LoiterPoint.et" {
+   ID "68B376049883AA70"
+   components {
+    Hierarchy "{68B37604988318E3}" {
+     Enabled 1
+    }
+   }
+   coords -0.816 0.1 -3.599
+   angles 0 86.399 0
+  }
+  $grp GenericEntity : "{F76BD5785C7FE191}Prefabs/Systems/Compositions/PatrolPoint/PatrolPoint_ObservationPoint.et" {
+   {
+    ID "68B3760498831A43"
+    components {
+     Hierarchy "{68B37604988318EB}" {
+      Enabled 1
+     }
+    }
+    coords -3.09 0 2.93
+    angles 0 -97.71 0
+   }
+   {
+    ID "68B376049883C1EB"
+    components {
+     Hierarchy "{68B37604988318EF}" {
+      Enabled 1
+     }
+    }
+    coords 3.659 0 2.708
+    angles 0 -99.26 0
+   }
+  }
+ }
+}

@@ -1,0 +1,276 @@
+VerticalLayoutWidgetClass {
+ Name "ShopItemDetails"
+ Slot OverlayWidgetSlot "{598EF9F5311402ED}" {
+  HorizontalAlign 3
+  VerticalAlign 3
+ }
+ components {
+  FFA_ArsenalItemDetailsUIComponent "{66B0D1B82FA8DC95}" {
+  }
+ }
+ {
+  TextWidgetClass "{66AA9D01A2A21509}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+   Name "Title"
+   Slot LayoutSlot "{598EF9F53F730301}" {
+    Padding 10 10 10 30
+   }
+   Text "Type Name"
+   "Font Size" 28
+   "Min Font Size" 25
+   Wrap 1
+   FontProperties FontProperties "{546AF489DFD25402}" {
+    Font "{EABA4FE9D014CCEF}UI/Fonts/RobotoCondensed/RobotoCondensed_Bold.fnt"
+   }
+  }
+  HorizontalLayoutWidgetClass "{66AA9D01A2A2150B}" {
+   Name "PrimaryPrice"
+   Slot LayoutSlot "{62C70ED5439FA0E4}" {
+    Padding 0 0 10 0
+   }
+   {
+    TextWidgetClass "{66AA9D01A2A21504}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+     Name "Label"
+     Slot LayoutSlot "{598EF9F53F730347}" {
+      VerticalAlign 1
+      Padding 10 0 0 0
+     }
+     Text "#ffa-arsenalui-costoftransaction"
+     "Font Size" 25
+     "Min Font Size" 25
+    }
+    FrameWidgetClass "{66AA9D01A2A21505}" {
+     Name "Frame0"
+     Slot LayoutSlot "{652EF4A7FC61275E}" {
+      SizeMode Fill
+     }
+    }
+    TextWidgetClass "{66AA9D01A2A21506}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+     Name "Value"
+     Slot LayoutSlot "{598EF9F53F730347}" {
+      VerticalAlign 1
+      Padding 10 0 0 0
+     }
+     Text "$100"
+     "Font Size" 25
+     "Min Font Size" 20
+    }
+    HorizontalLayoutWidgetClass "{66AA9D01A2A21507}" {
+     Name "ResourceSupplies"
+     Slot LayoutSlot "{62C70EC853EAE614}" {
+      HorizontalAlign 1
+      VerticalAlign 1
+      Padding 8 0 0 0
+     }
+     {
+      FrameWidgetClass "{66AA9D01A2A2C7AF}" {
+       Name "Frame0"
+       Slot LayoutSlot "{62C4B84572599893}" {
+        Padding -4 0 -2.5 0
+       }
+       {
+        ImageWidgetClass "{66AA9D01A2A2C7A9}" {
+         Name "Icon"
+         Slot FrameWidgetSlot "{62C4B8457313DDAA}" {
+          PositionX 0
+          OffsetLeft 0
+          OffsetTop 0
+          SizeX 36
+          OffsetRight -36
+          SizeY 36
+          OffsetBottom -36
+         }
+         Texture "{2EFEA2AF1F38E7F0}UI/Textures/Icons/icons_wrapperUI-64.imageset"
+         Image "supplies"
+         Size 64 64
+        }
+       }
+      }
+      TextWidgetClass "{66AA9D01A2A2C65C}" {
+       Name "ResourceSuppliesValue"
+       Slot LayoutSlot "{62C4B847CBB1A0C0}" {
+        HorizontalAlign 2
+        VerticalAlign 1
+        Padding 0 0 2 0
+       }
+       Rotation 0
+       Text "200"
+       "Font Size" 25
+       "Min Font Size" 20
+       "Vertical Alignment" Center
+       FontProperties FontProperties "{62C40D3CF2324EAB}" {
+        Font "{CD2634D279AB011A}UI/Fonts/Roboto/Roboto_Bold.fnt"
+       }
+      }
+     }
+    }
+    HorizontalLayoutWidgetClass "{66AA9D01A2A2C65F}" {
+     Name "ResourceFuel"
+     Slot LayoutSlot "{62C70EC853EAE614}" {
+      HorizontalAlign 1
+      VerticalAlign 1
+      Padding 8 0 0 0
+     }
+     {
+      FrameWidgetClass "{66AA9D01A2A2C65E}" {
+       Name "Frame0"
+       Slot LayoutSlot "{62C4B84572599893}" {
+        Padding -4 0 -2.5 0
+       }
+       {
+        ImageWidgetClass "{66AA9D01A2A2A1F9}" {
+         Name "Icon"
+         Slot FrameWidgetSlot "{62C4B8457313DDAA}" {
+          PositionX 0
+          OffsetLeft 0
+          OffsetTop 0
+          SizeX 36
+          OffsetRight -36
+          SizeY 36
+          OffsetBottom -36
+         }
+         Texture "{2EFEA2AF1F38E7F0}UI/Textures/Icons/icons_wrapperUI-64.imageset"
+         Image "veh_fuel"
+         Size 64 64
+        }
+       }
+      }
+      TextWidgetClass "{66AA9D01A2A2A1E6}" {
+       Name "ResourceFuelValue"
+       Slot LayoutSlot "{62C4B847CBB1A0C0}" {
+        HorizontalAlign 2
+        VerticalAlign 1
+        Padding 0 0 2 0
+       }
+       Rotation 0
+       Text "200"
+       "Font Size" 25
+       "Min Font Size" 20
+       "Vertical Alignment" Center
+       FontProperties FontProperties "{62C40D3CF2324EAB}" {
+        Font "{CD2634D279AB011A}UI/Fonts/Roboto/Roboto_Bold.fnt"
+       }
+      }
+     }
+    }
+   }
+  }
+  HorizontalLayoutWidgetClass "{66AA9D01A2A3676B}" {
+   Name "PrimaryStock"
+   Slot LayoutSlot "{652EF4A068D48073}" {
+   }
+   {
+    TextWidgetClass "{66AA9D01A2A3676A}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+     Name "Label"
+     Slot LayoutSlot "{598EF9F53F730347}" {
+      Padding 10 0 10 0
+     }
+     Text "#ffa-arsenalui-arsenalstock"
+     "Font Size" 25
+     "Min Font Size" 25
+     Wrap 1
+    }
+    TextWidgetClass "{66AA9D01A2A36769}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+     Name "Value"
+     Slot LayoutSlot "{598EF9F53F730347}" {
+      Padding 10 0 10 0
+      SizeMode Fill
+     }
+     Text "21/37"
+     "Font Size" 25
+     "Min Font Size" 20
+     "Horizontal Alignment" Right
+     Wrap 1
+    }
+   }
+  }
+  HorizontalLayoutWidgetClass "{66AA9D01A2A35164}" {
+   Name "AuxPrice"
+   Slot LayoutSlot "{62C70ED7860F3E8E}" {
+    Padding 0 15 10 0
+   }
+   "Is Visible" 0
+   {
+    TextWidgetClass "{66AA9D01A2A35165}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+     Name "Label"
+     Slot LayoutSlot "{598EF9F53F730347}" {
+      Padding 10 0 10 0
+     }
+     Color 0.305 0.305 0.305 1
+     Text "#JWK-ShopUI-SellPrice"
+     "Font Size" 25
+     "Min Font Size" 25
+     Wrap 1
+     FontProperties FontProperties "{546AF489DFD25402}" {
+      Font "{E2CBA6F76AAA42AF}UI/Fonts/Roboto/Roboto_Regular.fnt"
+     }
+    }
+    TextWidgetClass "{66AA9D01A2A35162}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+     Name "Value"
+     Slot LayoutSlot "{598EF9F53F730347}" {
+      Padding 10 0 0 0
+      SizeMode Fill
+     }
+     Color 0.305 0.305 0.305 1
+     Text "$123"
+     "Font Size" 25
+     "Min Font Size" 20
+     "Horizontal Alignment" Right
+     Wrap 1
+     FontProperties FontProperties "{546AF489DFD25402}" {
+      Font "{E2CBA6F76AAA42AF}UI/Fonts/Roboto/Roboto_Regular.fnt"
+     }
+    }
+   }
+  }
+  HorizontalLayoutWidgetClass "{66AA9D01A2A33328}" {
+   Name "AuxStock"
+   Slot LayoutSlot "{652EF4A068D48073}" {
+   }
+   {
+    TextWidgetClass "{66AA9D01A2A33329}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+     Name "Label"
+     Slot LayoutSlot "{598EF9F53F730347}" {
+      Padding 10 0 10 0
+     }
+     Color 0.305 0.305 0.305 1
+     Text "#JWK-ShopUI-PlayerStock"
+     "Font Size" 25
+     "Min Font Size" 25
+     Wrap 1
+     FontProperties FontProperties "{546AF489DFD25402}" {
+      Font "{E2CBA6F76AAA42AF}UI/Fonts/Roboto/Roboto_Regular.fnt"
+     }
+    }
+    TextWidgetClass "{66AA9D01A2A3FCDD}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+     Name "Value"
+     Slot LayoutSlot "{598EF9F53F730347}" {
+      Padding 10 0 10 0
+      SizeMode Fill
+     }
+     Color 0.305 0.305 0.305 1
+     Text "42"
+     "Font Size" 25
+     "Min Font Size" 20
+     "Horizontal Alignment" Right
+     Wrap 1
+     FontProperties FontProperties "{546AF489DFD25402}" {
+      Font "{E2CBA6F76AAA42AF}UI/Fonts/Roboto/Roboto_Regular.fnt"
+     }
+    }
+   }
+  }
+  TextWidgetClass "{66AA9D01A2A3FCDE}" : "{9D643D214767D616}UI/layouts/WidgetLibrary/TextWidgets/Text_Heading2.layout" {
+   Name "Description"
+   Slot LayoutSlot "{598EF9F53F73034B}" {
+    Padding 10 30 10 12
+   }
+   Text "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance."
+   "Font Size" 20
+   "Min Font Size" 12
+   Wrap 1
+   FontProperties FontProperties "{546AF489DFD25402}" {
+    Font "{E2CBA6F76AAA42AF}UI/Fonts/Roboto/Roboto_Regular.fnt"
+   }
+  }
+ }
+}
