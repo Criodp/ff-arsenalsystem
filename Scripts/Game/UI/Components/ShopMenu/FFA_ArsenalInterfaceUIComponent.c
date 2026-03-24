@@ -92,6 +92,19 @@ class FFA_ArsenalInterfaceUIComponent : JWK_ShopInterfaceUIComponent
 		inventory.GetItems(items);
 		
 		foreach (IEntity item : items) {
+			InventoryItemComponent invItem = InventoryItemComponent.Cast(item.FindComponent(InventoryItemComponent));
+			if (!invItem) continue;
+			
+			// Ensure the item is actually assigned to a valid inventory slot
+			if (!invItem.GetParentSlot()) continue;
+			
+			// Filter out hidden engine proxies or dummy items inside vests/backpacks that lack a name
+			ItemAttributeCollection attributes = invItem.GetAttributes();
+			if (!attributes) continue;
+			
+			UIInfo uiInfo = attributes.GetUIInfo();
+			if (!uiInfo || uiInfo.GetName() == string.Empty) continue;
+			
 			EntityPrefabData prefabData = item.GetPrefabData();
 			if (!prefabData) continue;
 			
@@ -250,5 +263,27 @@ class FFA_ArsenalInterfaceUIComponent : JWK_ShopInterfaceUIComponent
 		card.SetHighlighted(m_rSelectedItem == item);
 		card.SetUnavailable(info.m_iShopStock == 0);
 		card.SetUserData(info);
+	}
+	
+	override protected void OnShopStockChanged(JWK_BaseShopComponent shop, ResourceName resource, int stock)
+	{
+		super.OnShopStockChanged(shop, resource, stock);
+
+		bool shouldReloadGrid = (stock <= 0 || GetCurrentInventoryTab() == PLAYER_INVENTORY_TAB_ID);	
+
+		if (shouldReloadGrid)
+		{
+			ReloadGrid();
+		}
+		
+		GetGame().GetCallqueue().CallLater(DelayedInfoUpdate, 200, false, resource);
+	}
+	
+	protected void DelayedInfoUpdate(ResourceName res)
+	{
+		if (m_rSelectedItem == res)
+		{
+			SelectItem(res);
+		}
 	}
 }

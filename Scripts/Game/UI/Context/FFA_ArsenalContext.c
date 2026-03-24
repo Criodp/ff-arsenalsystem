@@ -1,3 +1,4 @@
+[BaseContainerProps()]
 class FFA_ArsenalContext : JWK_ShopContext {
 	override protected void InitWidgets()
 	{

@@ -11,8 +11,8 @@ class FFA_ArsenalItemDetailsUIComponent : JWK_ShopItemDetailsUIComponent {
             widgets.m_wStockLabel.SetText("#FFA-ArsenalUI-ArsenalStock");
             
             string shopStock = itemInfo.m_iShopStock.ToString();
-            if (itemInfo.m_iShopStockMax > 0)
-                shopStock += "/" + itemInfo.m_iShopStockMax;
+//            if (itemInfo.m_iShopStockMax > 0)
+//                shopStock += "/" + itemInfo.m_iShopStockMax;
             
             widgets.m_wStockValue.SetText(shopStock);
         }

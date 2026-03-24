@@ -122,25 +122,12 @@ class FFA_ArsenalShopComponent: JWK_ShopComponent
 	        }
 	    }
 	    
-	    if (!targetEntity) return;
-		
-		if (targetEntity == m_LastProcessedEntity) return; 
+	    if (!targetEntity || targetEntity == m_LastProcessedEntity) return; 
 	    m_LastProcessedEntity = targetEntity;
 
 	    UnloadEntityToArsenal_S(targetEntity, inventory);
 	    SCR_EntityHelper.DeleteEntityAndChildren(targetEntity);
-
-	    UnloadEntityToArsenal_S(targetEntity, inventory);
 		
-		if (!targetEntity) return;
-
-	    // 1. Add item and its contents to the Arsenal virtual database
-	    UnloadEntityToArsenal_S(targetEntity, inventory);
-	    
-	    // 2. Destroy the physical item in the player's inventory
-	    // The engine automatically clears the slot for us
-	    SCR_EntityHelper.DeleteEntityAndChildren(targetEntity);
-
 	    EPF_PersistenceComponent arsenalPersistence = EPF_PersistenceComponent.Cast(GetOwner().FindComponent(EPF_PersistenceComponent));
 	    if (arsenalPersistence) {
 	        arsenalPersistence.Save();
@@ -208,6 +195,12 @@ class FFA_ArsenalShopComponent: JWK_ShopComponent
 	    } else {
 	        m_aInventory.Remove(item);
 	    }
+		
+		//try fix to zero count item
+		if (m_Rpl.Id() != RplId.Invalid())
+	    {
+	        Rpc(RpcDo_SetStock, item, currentStock);
+	    }
 	    
 	    SetInventory_S(m_aInventory);
 	
@@ -248,6 +241,19 @@ class FFA_ArsenalShopComponent: JWK_ShopComponent
 	    foreach (IEntity child : allChildren)
 	    {
 	        if (!child) continue;
+	        
+	        // Ensure the child is a valid inventory item
+	        InventoryItemComponent invItem = InventoryItemComponent.Cast(child.FindComponent(InventoryItemComponent));
+	        if (!invItem) continue;
+	        
+	        // Check if the item has UI attributes
+	        ItemAttributeCollection attributes = invItem.GetAttributes();
+	        if (!attributes) continue;
+	        
+	        // Filter out hidden engine proxies or dummy items that lack a name
+	        UIInfo uiInfo = attributes.GetUIInfo();
+	        if (!uiInfo || uiInfo.GetName() == string.Empty) continue;
+	        
 	        ResourceName childPrefab = child.GetPrefabData().GetPrefabName();
 	        AddInventoryStock_S(childPrefab, 1);
 	    }

@@ -59,11 +59,11 @@ HorizontalLayoutWidgetClass {
         SCR_TabViewComponent "{546B27D01CA8A38D}" {
          m_aElements {
           SCR_TabViewContent "{652D5626D31F38E1}" {
-           m_sTabButtonContent "Arsenal inventory"
+           m_sTabButtonContent "#FFA-ArsenalUI-TabArsenalInventory"
            m_sTabIdentifier "ShopInventory"
           }
           SCR_TabViewContent "{652D5626C7DC26EC}" {
-           m_sTabButtonContent "Your inventory"
+           m_sTabButtonContent "#FFA-ArsenalUI-TabPlayerInventory"
            m_sTabIdentifier "PlayerInventory"
           }
          }
