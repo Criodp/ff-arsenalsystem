@@ -102,113 +102,121 @@ class FFA_ArsenalShopComponent: JWK_ShopComponent
 		}
 	}
 	
-	override void PerformPlayerItemSale_S(int playerID, ResourceName item)
+	override bool PerformPlayerItemSale_S(int playerId, ResourceName item)
 	{
-	    IEntity player = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerID);
-	    if (!player) return;
+		IEntity player = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerId);
+		if (!player) return false;
 	    
-	    SCR_InventoryStorageManagerComponent inventory = JWK_CompTU<SCR_InventoryStorageManagerComponent>.FindIn(player);
-	    if (!inventory) return;
+		SCR_InventoryStorageManagerComponent inventory = JWK_CompTU<SCR_InventoryStorageManagerComponent>.FindIn(player);
+		if (!inventory) return false;
 	    
-	    array<IEntity> inventoryItems = {};
-	    inventory.GetItems(inventoryItems);
+		array<IEntity> inventoryItems = {};
+		inventory.GetItems(inventoryItems);
 	    
-	    IEntity targetEntity = null;
+		IEntity targetEntity = null;
 	    
-	    foreach (IEntity ent : inventoryItems) {
-	        if (ent.GetPrefabData().GetPrefabName() == item) {
-	            targetEntity = ent;
-	            break; 
-	        }
-	    }
+		foreach (IEntity ent : inventoryItems) {
+			if (ent.GetPrefabData().GetPrefabName() == item) {
+				targetEntity = ent;
+				break; 
+			}
+		}
 	    
-	    if (!targetEntity || targetEntity == m_LastProcessedEntity) return; 
-	    m_LastProcessedEntity = targetEntity;
+		if (!targetEntity || targetEntity == m_LastProcessedEntity) return false; 
+		m_LastProcessedEntity = targetEntity;
 
-	    UnloadEntityToArsenal_S(targetEntity, inventory);
-	    SCR_EntityHelper.DeleteEntityAndChildren(targetEntity);
+		UnloadEntityToArsenal_S(targetEntity, inventory);
+		SCR_EntityHelper.DeleteEntityAndChildren(targetEntity);
 		
-	    EPF_PersistenceComponent arsenalPersistence = EPF_PersistenceComponent.Cast(GetOwner().FindComponent(EPF_PersistenceComponent));
-	    if (arsenalPersistence) {
-	        arsenalPersistence.Save();
-	    }
+		EPF_PersistenceComponent arsenalPersistence = EPF_PersistenceComponent.Cast(GetOwner().FindComponent(EPF_PersistenceComponent));
+		if (arsenalPersistence) {
+			arsenalPersistence.Save();
+		}
 	    
-	    EPF_PersistenceComponent playerPersistence = EPF_PersistenceComponent.Cast(player.FindComponent(EPF_PersistenceComponent));
-	    if (playerPersistence) {
-	        playerPersistence.Save();
-	    }
+		EPF_PersistenceComponent playerPersistence = EPF_PersistenceComponent.Cast(player.FindComponent(EPF_PersistenceComponent));
+		if (playerPersistence) {
+			playerPersistence.Save();
+		}
+
+		return true;
 	}
 	
-	override void PerformPlayerItemPurchase_S(int playerID, ResourceName item)
+	override bool PerformPlayerItemPurchase_S(int playerId, ResourceName item)
 	{
-	    IEntity player = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerID);
-	    if (!player) return;
+		IEntity player = GetGame().GetPlayerManager().GetPlayerControlledEntity(playerId);
+		if (!player) return false;
 
-	    int currentStock = GetStock(item);
-	    if (currentStock <= 0) {
-	        return; 
-	    }
+		int currentStock = GetStock(item);
+		if (currentStock <= 0) {
+			return false; 
+		}
 	
-	    SCR_InventoryStorageManagerComponent inventory = JWK_CompTU<SCR_InventoryStorageManagerComponent>.FindIn(player);
-	    if (!inventory) return;
+		SCR_InventoryStorageManagerComponent inventory = JWK_CompTU<SCR_InventoryStorageManagerComponent>.FindIn(player);
+		if (!inventory) return false;
 	
 		array<IEntity> itemsBefore = {};
-    	inventory.GetItems(itemsBefore);
+		inventory.GetItems(itemsBefore);
 		
-	    if (!inventory.TrySpawnPrefabToStorage(item)) 
-	    {
-	        return; 
-	    }
+		if (!inventory.TrySpawnPrefabToStorage(item)) 
+		{
+			return false; 
+		}
 		
-	    array<IEntity> itemsAfter = {};
-	    inventory.GetItems(itemsAfter);
+		array<IEntity> itemsAfter = {};
+		inventory.GetItems(itemsAfter);
 	    
-	    IEntity spawnedItem = null;
-	    foreach (IEntity ent : itemsAfter)
-	    {
-	        if (ent.GetPrefabData().GetPrefabName() == item && !itemsBefore.Contains(ent))
-	        {
-	            spawnedItem = ent;
-	            break;
-	        }
-	    }
+		IEntity spawnedItem = null;
+		foreach (IEntity ent : itemsAfter)
+		{
+			if (ent.GetPrefabData().GetPrefabName() == item && !itemsBefore.Contains(ent))
+			{
+				spawnedItem = ent;
+				break;
+			}
+		}
 	
-	    if (spawnedItem)
-	    {
-	        array<IEntity> defaultChildren = {};
-	        BaseInventoryStorageComponent storage = BaseInventoryStorageComponent.Cast(spawnedItem.FindComponent(BaseInventoryStorageComponent));
-	        
-	        if (storage)
-	        {
-	            storage.GetAll(defaultChildren);
-	            foreach (IEntity child : defaultChildren)
-	            {
-	                inventory.TryDeleteItem(child);
-	            }
-	        }
-	    }
+		if (spawnedItem)
+		{
+			WeaponComponent weaponComp = WeaponComponent.Cast(spawnedItem.FindComponent(WeaponComponent));
+			
+			if (weaponComp)
+			{
+				array<IEntity> defaultChildren = {};
+				BaseInventoryStorageComponent storage = BaseInventoryStorageComponent.Cast(spawnedItem.FindComponent(BaseInventoryStorageComponent));
+				
+				if (storage)
+				{
+					storage.GetAll(defaultChildren);
+					foreach (IEntity child : defaultChildren)
+					{
+						inventory.TryDeleteItem(child);
+					}
+				}
+			}
+		}
 	
-	    currentStock = currentStock - 1;
+		currentStock = currentStock - 1;
 	    
-	    if (currentStock > 0) {
-	        m_aInventory.Set(item, currentStock);
-	    } else {
-	        m_aInventory.Remove(item);
-	    }
+		if (currentStock > 0) {
+			m_aInventory.Set(item, currentStock);
+		} else {
+			m_aInventory.Remove(item);
+		}
 		
-		//try fix to zero count item
 		if (m_Rpl.Id() != RplId.Invalid())
-	    {
-	        Rpc(RpcDo_SetStock, item, currentStock);
-	    }
+		{
+			Rpc(RpcDo_SetStock, item, currentStock);
+		}
 	    
-	    SetInventory_S(m_aInventory);
+		SetInventory_S(m_aInventory);
 	
-	    EPF_PersistenceComponent arsenalPersistence = EPF_PersistenceComponent.Cast(GetOwner().FindComponent(EPF_PersistenceComponent));
-	    if (arsenalPersistence) arsenalPersistence.Save();
+		EPF_PersistenceComponent arsenalPersistence = EPF_PersistenceComponent.Cast(GetOwner().FindComponent(EPF_PersistenceComponent));
+		if (arsenalPersistence) arsenalPersistence.Save();
 	    
-	    EPF_PersistenceComponent playerPersistence = EPF_PersistenceComponent.Cast(player.FindComponent(EPF_PersistenceComponent));
-	    if (playerPersistence) playerPersistence.Save();
+		EPF_PersistenceComponent playerPersistence = EPF_PersistenceComponent.Cast(player.FindComponent(EPF_PersistenceComponent));
+		if (playerPersistence) playerPersistence.Save();
+
+		return true;
 	}
 	
 	void PerformArsenalMove(ResourceName item, EntityID vehicleId) {

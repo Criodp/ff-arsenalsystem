@@ -1,6 +1,6 @@
 class FFA_ArsenalItemDetailsUIComponent : JWK_ShopItemDetailsUIComponent {
 
-	override void SyncBuying(JWK_ShopContextItemInfo itemInfo, JWK_ShopItemDetailsWidgets widgets)
+	override void SyncBuying(notnull JWK_ShopContextItemInfo itemInfo, notnull JWK_ShopItemDetailsWidgets widgets)
 	{
         widgets.m_wPriceRow.SetVisible(false);
 
@@ -18,7 +18,7 @@ class FFA_ArsenalItemDetailsUIComponent : JWK_ShopItemDetailsUIComponent {
         }
 	}
 
-	override void SyncSelling(JWK_ShopContextItemInfo itemInfo, JWK_ShopItemDetailsWidgets widgets)
+	override void SyncSelling(notnull JWK_ShopContextItemInfo itemInfo, notnull JWK_ShopItemDetailsWidgets widgets)
 	{
 		widgets.m_wPriceRow.SetVisible(false);
         widgets.m_wStockRow.SetVisible(true);

@@ -3,7 +3,7 @@ class FFA_ArsenalSaveDataClass : EPF_ComponentSaveDataClass
 {
 }
 
-[EDF_DbName.Automatic()]
+[EDF_DbName()]
 class FFA_ArsenalSaveData : EPF_ComponentSaveData
 {
 	ref map<string, int> m_aInventory;

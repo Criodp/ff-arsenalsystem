@@ -4,10 +4,10 @@ class FFA_ArsenalInterfaceNavbarUIComponent : JWK_ShopInterfaceNavbarUIComponent
 	{
 		string label;
 		
-		if (m_iTradeMode == JWK_EShopInterfaceTradeMode.BUY) {
+		if (m_iTradeMode == JWK_EShopTradeMode.BUY) {
 			label = "#FFA-ArsenalUI-GetItem";
 		
-		} else if (m_iTradeMode == JWK_EShopInterfaceTradeMode.SELL) {
+		} else if (m_iTradeMode == JWK_EShopTradeMode.SELL) {
 			label = "#FFA-ArsenalUI-GiveItem";
 		}
 		

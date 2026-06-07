@@ -5,36 +5,40 @@ class FFA_ArsenalInterfaceUIComponent : JWK_ShopInterfaceUIComponent
 		JWK_ShopContextItemInfo result = super.CreateItemInfo(resource, forSelection);
 		if (!result) return null;
 		
-		result.m_iMoneyBuyPrice = 0;
-		result.m_iMoneySellPrice = 0;
-		result.m_mResourceCost.Clear();
+		result.SetCurrencyCost(JWK_EShopTradeMode.BUY, JWK_EShopCurrency.MONEY, 0);
+		result.SetCurrencyCost(JWK_EShopTradeMode.SELL, JWK_EShopCurrency.MONEY, 0);
+
+		for (int type = 0; type <= JWK_ELogisticsResourceType.MAX_RESOURCE_TYPE; type += 1) {
+			result.SetResourceCost(JWK_EShopTradeMode.BUY, type, 0);
+			result.SetResourceCost(JWK_EShopTradeMode.SELL, type, 0);
+		}
 		
 		return result;
 	}
 
 	override protected void UpdateTradeButton()
-		{
-			if (!m_SelectedItemInfo) {
-	        m_Navbar.SetTradeEnabled(false);
-	        return;
-	    }
+	{
+		if (!m_SelectedItemInfo) {
+			m_Navbar.SetTradeEnabled(false);
+			return;
+		}
 	    
-	    const string inventoryTab = GetCurrentInventoryTab();
+		const string inventoryTab = GetCurrentInventoryTab();
 	    
-	    if (inventoryTab == SHOP_INVENTORY_TAB_ID) {
-	        m_Navbar.SetTradeMode(JWK_EShopInterfaceTradeMode.BUY);
+		if (inventoryTab == SHOP_INVENTORY_TAB_ID) {
+			m_Navbar.SetTradeMode(JWK_EShopTradeMode.BUY);
 	        
-	        m_Navbar.SetTradeQuantity(JWK.GetShopManager().GetItemAttributes(m_rSelectedItem).m_iBundleSize);
+			m_Navbar.SetTradeQuantity(JWK.GetShopManager().GetItemAttributes(m_rSelectedItem).m_iBundleSize);
 	        
-	        bool buyEnabled = (m_SelectedItemInfo.m_iShopStock > 0);
-	        m_Navbar.SetTradeEnabled(buyEnabled);
+			bool buyEnabled = (m_SelectedItemInfo.m_iShopStock > 0);
+			m_Navbar.SetTradeEnabled(buyEnabled);
 	        
-	    } else {
-	        m_Navbar.SetTradeMode(JWK_EShopInterfaceTradeMode.SELL);
-	        m_Navbar.SetTradeQuantity(1);
+		} else {
+			m_Navbar.SetTradeMode(JWK_EShopTradeMode.SELL);
+			m_Navbar.SetTradeQuantity(1);
 	        
-	        m_Navbar.SetTradeEnabled(true);
-	    }
+			m_Navbar.SetTradeEnabled(true);
+		}
 	}
 
 	override protected void DoBuy()
@@ -232,7 +236,7 @@ class FFA_ArsenalInterfaceUIComponent : JWK_ShopInterfaceUIComponent
 	    }
 	}
 	
-	override protected void SetupCard(JWK_GridCellCardComponent card, ResourceName item, bool useSellPrice)
+	override protected void SetupCard(JWK_GridCellCardComponent card, ResourceName item, JWK_EShopTradeMode action)
 	{
 		card.ResetContents();
 		card.SetUserData(null);
@@ -246,19 +250,15 @@ class FFA_ArsenalInterfaceUIComponent : JWK_ShopInterfaceUIComponent
 		card.SetTitle(uiInfo.GetName());
 		card.SetPreviewPrefab(item);
 	
-		if (useSellPrice) {
-			card.SetMoneyPrice(info.m_iMoneySellPrice);
-		} else {
-			card.SetMoneyPrice(info.m_iMoneyBuyPrice);
-		}
+		card.SetMoneyPrice(info.GetCurrencyCost(action, JWK_EShopCurrency.MONEY));
 		
 		card.SetResourcePrice(
 			JWK_ELogisticsResourceType.SUPPLIES,
-			info.GetResourceCost(JWK_ELogisticsResourceType.SUPPLIES)
+			info.GetResourceCost(action, JWK_ELogisticsResourceType.SUPPLIES)
 		);
 		card.SetResourcePrice(
 			JWK_ELogisticsResourceType.FUEL,
-			info.GetResourceCost(JWK_ELogisticsResourceType.FUEL)
+			info.GetResourceCost(action, JWK_ELogisticsResourceType.FUEL)
 		);
 		card.SetHighlighted(m_rSelectedItem == item);
 		card.SetUnavailable(info.m_iShopStock == 0);
